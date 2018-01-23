@@ -47,9 +47,6 @@ int main(){
         strcat(pfadname,pfad_ende_berechnen(ende, laenge_ende, zahler));
         printf("Verzeichnis ist: %s\n", pfadname);
         //Dir öffnen
-        if(pfad!=NULL){
-            printf("Pfad nicht frei, sollte aber sein\n");
-        }
         pfad=opendir(pfadname);
         //Wenn Ordner schon geloescht wurde
         if(pfad==NULL){
@@ -70,7 +67,6 @@ int main(){
         pfad=NULL;
         zahler++;
     }
-
     free(endungen_fertig);
     return EXIT_SUCCESS;
 }

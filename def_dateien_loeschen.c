@@ -30,14 +30,16 @@ char *pfad_ende_berechnen(char *pfad_ende, size_t laenge, int zaehler){
     return pfad_ende;
 }
 
-char *endungen_bestaetigen(int *anzahl_fertig){
+char **endungen_bestaetigen(int *anzahl_fertig){
     int i;
     int j;
     char ja_nein[10];
     int check[GROESSE];
     char **endungen_fertig;
 
-    const char *endungen[]={".bgz",".bmp",".cab",".class",".deb", ".dll", ".DLL", ".elf", ".exe", ".gif",".gz",".html", ".ini", ".py", ".rar", ".sh", ".txt", ".xml", ".zip"};
+    const char *endungen[]={".a", ".bgz",".bmp",".cab",".class",".deb", ".dll", ".DLL", ".elf", ".exe", ".EXE", ".Exe", ".gif", \
+    ".gz",".html", ".ini", ".jpg", ".java", ".ldt", ".mp3", ".m4p", ".plist", ".pl", ".png", ".py", ".ppt", \
+    ".rar", ".res", ".rpm", ".sh", ".tex", ".tif", ".txt", ".tz", ".xml", ".zip"};
     //const char *endungen[]={".bgz",".bmp",".cab",".class"};
     *anzahl_fertig=0;
 
@@ -71,6 +73,7 @@ char *endungen_bestaetigen(int *anzahl_fertig){
     }
     return endungen_fertig;
 }
+
 int datei_loeschen(const DIR *pfad, char *pfadname, char **endungen_fertig, int anzahl_fertig){
     int i;
     int anzahl_geloeschte_dateien;
